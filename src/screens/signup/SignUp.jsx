@@ -8,6 +8,7 @@ import { useStateProvider } from "../../utils/StateProvider.jsx";
 import { reducerCases } from "../../utils/Constants.js";
 
 const Signup = () => {
+  // eslint-disable-next-line no-unused-vars
   const [{ email, name }, dispatch] = useStateProvider();
 
   const [_email, _setEmail] = useState("");

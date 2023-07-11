@@ -6,9 +6,11 @@ import {
   getUserData,
   getDonorData,
 } from "../../api/firebaseStore";
+import ProfilePopUp from "../../components/ProfilePopUp";
 import { useStateProvider } from "../../utils/StateProvider";
-
 const Profile = () => {
+  const [{ profilePopUp }, dispatch] = useStateProvider();
+
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -40,6 +42,7 @@ const Profile = () => {
   return (
     <Container>
       <NavBar />
+      {profilePopUp ? <ProfilePopUp /> : null}
       <div className="user-profile">
         <div className="user-profile-header">
           <div className="user-profile-header-left">
@@ -136,10 +139,10 @@ const Profile = () => {
               </tbody>
             </table>
           </form>
-          <div className="user-profile-body-right">
+          {/* <div className="user-profile-body-right">
             <h1>Location</h1>
             <div className="location"></div>
-          </div>
+          </div> */}
           <button onClick={() => handleSubmit()}>Save</button>
         </div>
       </div>

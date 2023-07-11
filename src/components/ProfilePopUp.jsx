@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { logout } from "../api/firebaseAuth.js";
+import { getUserData } from "../api/firebaseStore.js";
 import { reducerCases } from "../utils/Constants.js";
 import { useStateProvider } from "../utils/StateProvider.jsx";
 import { useNavigate, Link } from "react-router-dom";
 
 const ProfilePopUp = () => {
+  // eslint-disable-next-line no-unused-vars
   const [{ isLoggedIn, name }, dispatch] = useStateProvider();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const getData = async () => {
+      const data = await getUserData();
+      dispatch({ type: reducerCases.SET_NAME, name: data?.name });
+    };
+    getData();
+  }, [dispatch]);
 
   const handleSignOut = () => {
     logout();
@@ -45,6 +55,7 @@ const ProfilePopUp = () => {
 export default ProfilePopUp;
 
 const Container = styled.div`
+  z-index: 2;
   width: 250px;
   height: 40%;
   border-radius: 15px;

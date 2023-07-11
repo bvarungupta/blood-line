@@ -1,7 +1,7 @@
 import { reducerCases } from "./Constants";
 
 export const initialState = {
-  isValidate: true,
+  isValidate: false,
   isLoggedIn: false,
   email: "",
   password: "",

@@ -46,6 +46,19 @@ export const getUserData = async () => {
   }
 };
 
+export const addUserCoordinates = async (latitude, longitude) => {
+  try {
+    await updateDoc(doc(db, "userDetails", auth.currentUser.uid), {
+      coods: {
+        latitude: latitude,
+        longitude: longitude,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const getDonorData = async () => {
   try {
     const data = await getDocs(collection(db, "userDetails"));

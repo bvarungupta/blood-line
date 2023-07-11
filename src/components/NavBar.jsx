@@ -4,7 +4,6 @@ import { AiOutlineUser } from "react-icons/ai";
 import { RxSwitch } from "react-icons/rx";
 import { BiDonateBlood, BiChevronDown, BiChevronUp } from "react-icons/bi";
 import { FiSearch } from "react-icons/fi";
-import ProfilePopUp from "./ProfilePopUp";
 import { useStateProvider } from "../utils/StateProvider";
 import { reducerCases } from "../utils/Constants";
 
@@ -22,7 +21,7 @@ const NavBar = () => {
 
   return (
     <Container>
-      <h1>Logo</h1>
+      <h1>BloodLine</h1>
       <div className="search-bar-container">
         <div className="search">
           <FiSearch className="search-icon" />
@@ -50,6 +49,7 @@ const NavBar = () => {
 export default NavBar;
 
 const Container = styled.div`
+  z-index: 10;
   width: 100%;
   height: 12vh;
   border-bottom: rgba(0, 0, 0, 0.1) solid 1px;
@@ -61,6 +61,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #88da1a;
   }
   .search-bar-container {
     display: flex;
